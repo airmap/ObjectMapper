@@ -34,20 +34,20 @@ public func <- <T: SignedInteger>(left: inout T?, right: Map) {
 	}
 }
 
-// Code targeting the Swift 4.1 compiler and below.
-#if !(swift(>=4.1.50) || (swift(>=3.4) && !swift(>=4.0)))
-/// ImplicitlyUnwrappedOptional SignedInteger mapping
-public func <- <T: SignedInteger>(left: inout T!, right: Map) {
-	switch right.mappingType {
-	case .fromJSON where right.isKeyPresent:
-		let value: T! = toSignedInteger(right.currentValue)
-		FromJSON.basicType(&left, object: value)
-	case .toJSON:
-		left >>> right
-	default: ()
-	}
-}
-#endif
+//// Code targeting the Swift 4.1 compiler and below.
+//#if !(swift(>=4.1.50) || (swift(>=3.4) && !swift(>=4.0)))
+///// ImplicitlyUnwrappedOptional SignedInteger mapping
+//public func <- <T: SignedInteger>(left: inout T!, right: Map) {
+//	switch right.mappingType {
+//	case .fromJSON where right.isKeyPresent:
+//		let value: T! = toSignedInteger(right.currentValue)
+//		FromJSON.basicType(&left, object: value)
+//	case .toJSON:
+//		left >>> right
+//	default: ()
+//	}
+//}
+//#endif
 
 
 // MARK: - Unsigned Integer
@@ -77,20 +77,20 @@ public func <- <T: UnsignedInteger>(left: inout T?, right: Map) {
 	}
 }
 
-// Code targeting the Swift 4.1 compiler and below.
-#if !(swift(>=4.1.50) || (swift(>=3.4) && !swift(>=4.0)))
-/// ImplicitlyUnwrappedOptional UnsignedInteger mapping
-public func <- <T: UnsignedInteger>(left: inout T!, right: Map) {
-	switch right.mappingType {
-	case .fromJSON where right.isKeyPresent:
-		let value: T! = toUnsignedInteger(right.currentValue)
-		FromJSON.basicType(&left, object: value)
-	case .toJSON:
-		left >>> right
-	default: ()
-	}
-}
-#endif
+//// Code targeting the Swift 4.1 compiler and below.
+//#if !(swift(>=4.1.50) || (swift(>=3.4) && !swift(>=4.0)))
+///// ImplicitlyUnwrappedOptional UnsignedInteger mapping
+//public func <- <T: UnsignedInteger>(left: inout T!, right: Map) {
+//	switch right.mappingType {
+//	case .fromJSON where right.isKeyPresent:
+//		let value: T! = toUnsignedInteger(right.currentValue)
+//		FromJSON.basicType(&left, object: value)
+//	case .toJSON:
+//		left >>> right
+//	default: ()
+//	}
+//}
+//#endif
 
 // MARK: - Casting Utils
 
